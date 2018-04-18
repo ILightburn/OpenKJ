@@ -34,7 +34,5 @@ echo Packaging portable archive...
 
 echo Creating installer...
 cd %project_dir%\installer\windows\x86_64\
-mkdir 
-robocopy %project_dir%\appveyor\ %project_dir%\installer\windows\x86_64 /E /np
 dir
-binarycreator.exe --offline-only -c package.xml -p packages OpenKJ_%TAG_NAME%_windows_x86_64_installer.exe
+binarycreator.exe --offline-only -c config\config.xml -p packages OpenKJ_%TAG_NAME%_windows_x86_64_installer.exe
