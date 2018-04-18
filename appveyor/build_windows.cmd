@@ -30,9 +30,9 @@ mkdir "%project_dir%\installer\windows\x86_64\packages\org.openkj.openkj\data\"
 robocopy OpenKJ\ "%project_dir%\installer\windows\x86_64\packages\org.openkj.openkj\data" /E /np
 
 echo Packaging portable archive...
-7z a -bd OpenKJ_%TAG_NAME%_windows_x86_64_portable.zip OpenKJ
+7z a -bd OpenKJ_%OKJVERSION%_windows_x86_64_portable.zip OpenKJ
 
 echo Creating installer...
 cd %project_dir%\installer\windows\x86_64\
 dir
-binarycreator.exe --offline-only -c config\config.xml -p packages OpenKJ_%TAG_NAME%_windows_x86_64_installer.exe
+binarycreator.exe --offline-only -c config\config.xml -p packages OpenKJ_%OKJVERSION%_windows_x86_64_installer.exe
