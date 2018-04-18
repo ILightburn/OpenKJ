@@ -27,7 +27,7 @@ copy "%project_dir%\LICENSE" "OpenKJ\LICENSE.txt"
 
 echo Copying files for installer...
 mkdir "%project_dir%\installer\windows\x86_64\packages\org.openkj.openkj\data\"
-robocopy OpenKJ\ "%project_dir%\installer\windows\x86_64\packages\org.openkj.openkj\data" /E /np
+robocopy OpenKJ\release\ "%project_dir%\installer\windows\x86_64\packages\org.openkj.openkj\data" /E /np
 
 echo Packaging portable archive...
 7z a -bd OpenKJ_%OKJVERSION%_windows_x86_64_portable.zip OpenKJ
