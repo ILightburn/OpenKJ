@@ -27,6 +27,9 @@ echo Copying files for installer...
 mkdir "%project_dir%\installer\windows\x86_64\packages\org.openkj.openkj\data\"
 robocopy OpenKJ\release\ "%project_dir%\installer\windows\x86_64\packages\org.openkj.openkj\data" /E /np
 del "%project_dir%\installer\windows\x86_64\packages\org.openkj.openkj\data\*.obj"
+del "%project_dir%\installer\windows\x86_64\packages\org.openkj.openkj\data\*.cpp"
+del "%project_dir%\installer\windows\x86_64\packages\org.openkj.openkj\data\*.h"
+
 
 echo Pulling gstreamer deps for installer...
 copy c:\gstreamer\1.0\x86_64\bin\*.dll "%project_dir%\installer\windows\x86_64\packages\org.openkj.openkj\data\"
