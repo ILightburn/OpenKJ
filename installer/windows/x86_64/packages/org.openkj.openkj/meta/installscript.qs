@@ -20,5 +20,6 @@ Component.prototype.createOperations = function()
 
     if (installer.value("os") === "win") {
         component.addOperation("CreateShortcut", "@TargetDir@/OpenKJ.exe", "@StartMenuDir@/OpenKJ.lnk");
+        component.addOperation("Execute", "@TargetDir@/vcredist_x64.exe", "/quiet", "/norestart");
     }
 }
