@@ -33,8 +33,8 @@ copy c:\gstreamer\1.0\x86_64\bin\*.dll "%project_dir%\installer\windows\x86_64\p
 mkdir "%project_dir%\installer\windows\x86_64\packages\org.openkj.openkj\data\lib"
 mkdir "%project_dir%\installer\windows\x86_64\packages\org.openkj.openkj\data\lib\gstreamer-1.0"
 mkdir "%project_dir%\installer\windows\x86_64\packages\org.openkj.openkj\data\lib\gstreamer-1.0\validate"
-cp c:\gstreamer\1.0\x86_64\lib\gstreamer-1.0\*.dll "%project_dir%\installer\windows\x86_64\packages\org.openkj.openkj\data\lib\gstreamer-1.0\"
-cp c:\gstreamer/1.0/x86_64/lib/gstreamer-1.0/validate/*.dll "%project_dir%\installer\windows\x86_64\packages\org.openkj.openkj\data\lib\gstreamer-1.0\validate\"
+copy c:\gstreamer\1.0\x86_64\lib\gstreamer-1.0\*.dll "%project_dir%\installer\windows\x86_64\packages\org.openkj.openkj\data\lib\gstreamer-1.0\"
+copy c:\gstreamer\1.0\x86_64\lib\gstreamer-1.0\validate\*.dll "%project_dir%\installer\windows\x86_64\packages\org.openkj.openkj\data\lib\gstreamer-1.0\validate\"
 
 
 rem echo Packaging portable archive...
