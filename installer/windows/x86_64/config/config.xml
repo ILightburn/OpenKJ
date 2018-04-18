@@ -8,7 +8,7 @@
     <ProductUrl>https://openkj.org/</ProductUrl>
     <InstallerWindowIcon>openkj</InstallerWindowIcon>
     <InstallerApplicationIcon>openkj</InstallerApplicationIcon>
-    <Logo>logo.png</Logo>
+    <Logo>okjicon64x64.png</Logo>
     <AllowSpaceInPath>true</AllowSpaceInPath>
     <StartMenuDir>OpenKJ</StartMenuDir>
     <TargetDir>@RootDir@/Program Files/@ProductName@</TargetDir>
