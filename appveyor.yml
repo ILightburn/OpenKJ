@@ -12,6 +12,24 @@ clone_depth: 1
 init:
   - set TAG_NAME=%APPVEYOR_REPO_TAG_NAME%
 
+install:
+  - ps: |
+      Write-Host "Installing GStreamer..." -ForegroundColor Cyan
+      $msiPath = "$($env:USERPROFILE)\gstreamer.msi"
+      Write-Host "Downloading..."
+      (New-Object Net.WebClient).DownloadFile('https://gstreamer.freedesktop.org/data/pkg/windows/1.14.0.1/gstreamer-1.0-x86_64-1.14.0.1.msi', $msiPath)
+      Write-Host "Installing..."
+      cmd /c start /wait msiexec /package $msiPath /passive ADDLOCAL=ALL
+      Write-Host "Installed" -ForegroundColor Green
+  - ps: |
+      Write-Host "Installing GStreamer dev..." -ForegroundColor Cyan
+      $msiPath = "$($env:USERPROFILE)\gstreamer-devel.msi"
+      Write-Host "Downloading..."
+      (New-Object Net.WebClient).DownloadFile('https://gstreamer.freedesktop.org/data/pkg/windows/1.14.0.1/gstreamer-1.0-devel-x86_64-1.14.0.1.msi', $msiPath)
+      Write-Host "Installing..."
+      cmd /c start /wait msiexec /package $msiPath /passive ADDLOCAL=ALL
+      Write-Host "Installed" -ForegroundColor Green
+
 build_script:
   - call "appveyor/build_windows.cmd"
 
