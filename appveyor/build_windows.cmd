@@ -15,7 +15,7 @@ echo Running tests...
 echo Packaging...
 cd %project_dir%\build\windows\msvc\x86_64\release\
 dir
-windeployqt release\OpenKJ.exe
+windeployqt OpenKJ\release\OpenKJ.exe
 
 rd /s /q OpenKJ\moc\
 rd /s /q OpenKJ\obj\
@@ -36,4 +36,4 @@ echo Creating installer...
 cd %project_dir%\installer\windows\x86_64\
 robocopy %project_dir%\appveyor\ %project_dir%\installer\windows\x86_64 /E
 dir
-binarycreator.exe --offline-only -c appveyor\config.xml -p packages OpenKJ_%TAG_NAME%_windows_x86_64_installer.exe
+binarycreator.exe --offline-only -c config.xml -p packages OpenKJ_%TAG_NAME%_windows_x86_64_installer.exe
