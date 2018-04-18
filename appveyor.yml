@@ -1,11 +1,14 @@
 image: Visual Studio 2015
 
+version: 1.2.5
+
 environment:
   matrix:
   - QT: C:\Qt\5.10.1\msvc2015_64
     PLATFORM: amd64
     COMPILER: msvc
     VSVER: 14
+    OKJVERSION: 1.2.5
 
 clone_depth: 1
 
