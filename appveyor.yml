@@ -37,7 +37,5 @@ build_script:
   - call "appveyor/build_windows.cmd"
 
 artifacts:
-  - path: build\windows\msvc\x86_64\release\OpenKJ_$(OKJVERSION)_windows_x86_64_portable.zip
-    name: portable
-  - path: installer\windows\x86_64\OpenKJ_$(OKJVERSION)_windows_x86_64_installer.exe
+  - path: installer\windows\x86_64\OpenKJ-$(OKJVERSION)-windows-x86_64-installer.exe
     name: installer
