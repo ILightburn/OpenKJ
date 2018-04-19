@@ -18,6 +18,7 @@ init:
 install:
   - ps: |
       Write-Host "Installing GStreamer..." -ForegroundColor Cyan
+      Write-Host "Platform - $($env:target_arch)"
       $msiPath = "$($env:USERPROFILE)\gstreamer.msi"
       $gstInstallUrl = "https://gstreamer.freedesktop.org/data/pkg/windows/1.14.0.1/gstreamer-1.0-$($env:target_arch)-1.14.0.1.msi"
       $gstDevelInstallUrl = "https://gstreamer.freedesktop.org/data/pkg/windows/1.14.0.1/gstreamer-1.0-devel-$($env:target_arch)-1.14.0.1.msi"
