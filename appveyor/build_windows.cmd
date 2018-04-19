@@ -20,20 +20,20 @@ windeployqt OpenKJ\release\OpenKJ.exe
 echo Signing OpenKJ binary
 signtool sign /tr http://timestamp.digicert.com /td sha256 /fd sha256 /f "%project_dir%\cscrt\cscrt.pfx" /p "%pfx_pass%" OpenKJ\release\Openkj.exe
 
-rd /s /q OpenKJ\moc\
-rd /s /q OpenKJ\obj\
-rd /s /q OpenKJ\qrc\
+rd /s /q OpenKJ\release\moc\
+rd /s /q OpenKJ\release\obj\
+rd /s /q OpenKJ\release\qrc\
 
 echo Copying project files for archival...
-copy "%project_dir%\README.md" "OpenKJ\README.md"
-copy "%project_dir%\LICENSE" "OpenKJ\LICENSE.txt"
+copy "%project_dir%\README.md" "OpenKJ\release\README.md"
+copy "%project_dir%\LICENSE" "OpenKJ\release\LICENSE.txt"
 
 echo Copying files for installer...
 mkdir "%project_dir%\installer\windows\%LONGARCH%\packages\org.openkj.openkj\data\"
 robocopy OpenKJ\release\ "%project_dir%\installer\windows\%LONGARCH%\packages\org.openkj.openkj\data" /E /np
 del "%project_dir%\installer\windows\%LONGARCH%\packages\org.openkj.openkj\data\*.obj"
 del "%project_dir%\installer\windows\%LONGARCH%\packages\org.openkj.openkj\data\*.cpp"
-del "%project_dir%\installer\windows\%LONGARCH\packages\org.openkj.openkj\data\*.h"
+del "%project_dir%\installer\windows\%LONGARCH%\packages\org.openkj.openkj\data\*.h"
 
 
 echo Pulling gstreamer deps for installer...
