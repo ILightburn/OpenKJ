@@ -12,6 +12,7 @@ environment:
     VSVER: 14
     LONGARCH: x86_64
   - TARGET_ARCH: x86
+    QT: C:\Qt\5.10.1\msvc2015
     PLATFORM: x86
     COMPILER: msvc
     VSVER: 14
@@ -25,7 +26,7 @@ init:
 install:
   - ps: |
       Write-Host "Installing GStreamer..." -ForegroundColor Cyan
-      Write-Host "Platform - $($env:target_arch)"
+      Write-Host "Platform - $($env:LONGARCH)"
       $msiPath = "$($env:USERPROFILE)\gstreamer.msi"
       $gstInstallUrl = "https://gstreamer.freedesktop.org/data/pkg/windows/1.14.0.1/gstreamer-1.0-$($env:LONGARCH)-1.14.0.1.msi"
       $gstDevelInstallUrl = "https://gstreamer.freedesktop.org/data/pkg/windows/1.14.0.1/gstreamer-1.0-devel-$($env:LONGARCH)-1.14.0.1.msi"
@@ -38,7 +39,6 @@ install:
       Write-Host "Installing GStreamer dev..." -ForegroundColor Cyan
       $msiPath = "$($env:USERPROFILE)\gstreamer-devel.msi"
       Write-Host "Downloading..."
-      if ($env:target_arch -eq "x86_64")
       (New-Object Net.WebClient).DownloadFile($gstDevelInstallUrl, $msiPath)
       Write-Host "Installing..."
       cmd /c start /wait msiexec /package $msiPath /passive ADDLOCAL=ALL
