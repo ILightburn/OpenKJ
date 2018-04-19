@@ -3,7 +3,7 @@ image: Visual Studio 2015
 version: 1.2.6
 
 environment:
-  OKJVERSION: {version}
+  OKJVERSION: 1.2.6
   matrix:
   - TARGET_ARCH: x64
     QT: C:\Qt\5.10.1\msvc2015_64
