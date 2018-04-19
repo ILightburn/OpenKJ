@@ -17,6 +17,8 @@ echo Packaging...
 cd %project_dir%\build\windows\msvc\x86_64\release\
 dir
 windeployqt OpenKJ\release\OpenKJ.exe
+echo Signing OpenKJ binary
+signtool sign /tr http://timestamp.digicert.com /td sha256 /fd sha256 /f "%project_dir%\cscrt\cscrt.pfx" /p "%pfx_pass%" OpenKJ\release\Openkj.exe
 
 rd /s /q OpenKJ\moc\
 rd /s /q OpenKJ\obj\
@@ -49,4 +51,5 @@ rem 7z a -bd OpenKJ_%OKJVERSION%_windows_x86_64_portable.zip OpenKJ
 echo Creating installer...
 cd %project_dir%\installer\windows\x86_64\
 dir
-binarycreator.exe --offline-only -c config\config.xml -p packages OpenKJ_%OKJVERSION%_windows_x86_64_installer.exe
+binarycreator.exe --offline-only -c config\config.xml -p packages OpenKJ-%OKJVERSION%-windows-x86_64-installer.exe
+signtool sign /tr http://timestamp.digicert.com /td sha256 /fd sha256 /f "%project_dir%\cscrt\cscrt.pfx" /p "%pfx_pass%" OpenKJ-%OKJVERSION%-windows-x86_64-installer.exe
