@@ -48,5 +48,5 @@ build_script:
   - call "appveyor/build_windows.cmd"
 
 artifacts:
-  - path: installer\windows\x86_64\OpenKJ-$(OKJVERSION)-windows-$($env:target_arch)-installer.exe
+  - path: installer\windows\$(LONGARCH)\OpenKJ-$(OKJVERSION)-windows-$(LONGARCH)-installer.exe
     name: installer
