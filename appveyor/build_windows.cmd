@@ -28,28 +28,28 @@ echo Copying project files for archival...
 copy "%project_dir%\README.md" "OpenKJ\release\README.md"
 copy "%project_dir%\LICENSE" "OpenKJ\release\LICENSE.txt"
 
+mkdir "%project_dir%\output"
+
 echo Copying files for installer...
-mkdir "%project_dir%\installer\windows\%LONGARCH%\packages\org.openkj.openkj\data\"
-robocopy OpenKJ\release\ "%project_dir%\installer\windows\%LONGARCH%\packages\org.openkj.openkj\data" /E /np
-del "%project_dir%\installer\windows\%LONGARCH%\packages\org.openkj.openkj\data\*.obj"
-del "%project_dir%\installer\windows\%LONGARCH%\packages\org.openkj.openkj\data\*.cpp"
-del "%project_dir%\installer\windows\%LONGARCH%\packages\org.openkj.openkj\data\*.h"
+robocopy OpenKJ\release\ "%project_dir%\output" /E /np
+del "%project_dir%\output\*.obj"
+del "%project_dir%\output\*.cpp"
+del "%project_dir%\output\*.h"
 
 
 echo Pulling gstreamer deps for installer...
-copy c:\gstreamer\1.0\%LONGARCH%\bin\*.dll "%project_dir%\installer\windows\%LONGARCH%\packages\org.openkj.openkj\data\"
-mkdir "%project_dir%\installer\windows\%LONGARCH%\packages\org.openkj.openkj\data\lib"
-mkdir "%project_dir%\installer\windows\%LONGARCH%\packages\org.openkj.openkj\data\lib\gstreamer-1.0"
-mkdir "%project_dir%\installer\windows\%LONGARCH%\packages\org.openkj.openkj\data\lib\gstreamer-1.0\validate"
-copy c:\gstreamer\1.0\%LONGARCH%\lib\gstreamer-1.0\*.dll "%project_dir%\installer\windows\%LONGARCH%\packages\org.openkj.openkj\data\lib\gstreamer-1.0\"
-copy c:\gstreamer\1.0\%LONGARCH%\lib\gstreamer-1.0\validate\*.dll "%project_dir%\installer\windows\%LONGARCH%\packages\org.openkj.openkj\data\lib\gstreamer-1.0\validate\"
-
-
-rem echo Packaging portable archive...
-rem 7z a -bd OpenKJ_%OKJVERSION%_windows_x86_64_portable.zip OpenKJ
+copy c:\gstreamer\1.0\%LONGARCH%\bin\*.dll "%project_dir%\output\"
+mkdir "%project_dir%\output\lib"
+mkdir "%project_dir%\output\lib\gstreamer-1.0"
+mkdir "%project_dir%\output\lib\gstreamer-1.0\validate"
+copy c:\gstreamer\1.0\%LONGARCH%\lib\gstreamer-1.0\*.dll "%project_dir%\output\lib\gstreamer-1.0\"
+copy c:\gstreamer\1.0\%LONGARCH%\lib\gstreamer-1.0\validate\*.dll "%project_dir%\output\lib\gstreamer-1.0\validate\"
 
 echo Creating installer...
 cd %project_dir%\installer\windows\%LONGARCH%\
 dir
-binarycreator.exe --offline-only -c config\config.xml -p packages OpenKJ-%OKJVERSION%-windows-%LONGARCH%-installer.exe
-signtool sign /tr http://timestamp.digicert.com /td sha256 /fd sha256 /f "%project_dir%\cscrt\cscrt.pfx" /p "%pfx_pass%" OpenKJ-%OKJVERSION%-windows-%LONGARCH%-installer.exe
+rem binarycreator.exe --offline-only -c config\config.xml -p packages OpenKJ-%OKJVERSION%-windows-%LONGARCH%-installer.exe
+"C:\Program Files (x86)\Inno Setup 5\iscc.exe" "%project_dir%\appveyor\openkj_%LONGARCH%.iss" /O"%project_dir%/"
+move "%project_dir%\OpenKJ.exe" "%project_dir%\OpenKJ-%OKJVERSION%-%BITS%-setup.exe"
+echo Signing installer...
+signtool sign /tr http://timestamp.digicert.com /td sha256 /fd sha256 /f "%project_dir%\cscrt\cscrt.pfx" /p "%pfx_pass%" "%project_dir%\OpenKJ-%OKJVERSION%-%BITS%-setup.exe
