@@ -7,7 +7,7 @@ set PATH=%QT%\bin\;C:\Qt\Tools\QtCreator\bin\;C:\Qt\QtIFW2.0.1\bin\;%PATH%
 call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" %PLATFORM%
 
 mkdir "%project_dir%\cscrt
-7z e "%project_dir%\installer\cscrt.7z" -p"%cscrt_pass%" -o"%project_dir%\cscrt"
+7z e "%project_dir%\appveyor\cscrt.7z" -p"%cscrt_pass%" -o"%project_dir%\cscrt"
 
 echo Building OpenKJ...
 qmake CONFIG-=debug CONFIG+=release
@@ -19,10 +19,6 @@ dir
 windeployqt OpenKJ\release\OpenKJ.exe
 echo Signing OpenKJ binary
 signtool sign /tr http://timestamp.digicert.com /td sha256 /fd sha256 /f "%project_dir%\cscrt\cscrt.pfx" /p "%pfx_pass%" OpenKJ\release\Openkj.exe
-
-rd /s /q OpenKJ\release\moc\
-rd /s /q OpenKJ\release\obj\
-rd /s /q OpenKJ\release\qrc\
 
 echo Copying project files for archival...
 copy "%project_dir%\README.md" "OpenKJ\release\README.md"
