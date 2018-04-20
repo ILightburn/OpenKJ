@@ -21,11 +21,10 @@ AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
 DefaultDirName={pf}\{#MyAppName}
 DefaultGroupName={#MyAppName}
-LicenseFile=C:\Program Files\OpenKJ\LICENSE.txt
+LicenseFile=C:\projects\openkj\OpenKJ\LICENSE.txt
 OutputBaseFilename=OpenKJ
 Compression=lzma
 SolidCompression=yes
-SetupIconFile=userdocs:OpenKJ\OpenKJ\Icons\okjicon.ico
 UninstallDisplayName=OpenKJ
 UninstallDisplayIcon={uninstallexe}
 
@@ -37,8 +36,8 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 Name: "quicklaunchicon"; Description: "{cm:CreateQuickLaunchIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked; OnlyBelowVersion: 0,6.1
 
 [Files]
-Source: "C:\Program Files\OpenKJ\OpenKJ.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Program Files\OpenKJ\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "C:\projects\openkj\output\OpenKJ.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\projects\openkj\output\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
