@@ -61,5 +61,5 @@ deploy:
   host: openkj.org
   username: $(deploy_user)
   password: $(deploy_pass)
-  folder: unstable 
+  folder: $(APPVEYOR_REPO_BRANCH) 
   artifact: installer

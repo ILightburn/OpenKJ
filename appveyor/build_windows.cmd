@@ -2,6 +2,8 @@ echo on
 
 SET project_dir="%cd%"
 
+echo Building OpenKJ branch %APPVEYOR_REPO_BRANCH%
+
 echo Set up environment...
 set PATH=%QT%\bin\;C:\Qt\Tools\QtCreator\bin\;C:\Qt\QtIFW2.0.1\bin\;%PATH%
 call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" %PLATFORM%
