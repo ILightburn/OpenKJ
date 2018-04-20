@@ -11,12 +11,14 @@ environment:
     COMPILER: msvc
     VSVER: 14
     LONGARCH: x86_64
+    BITS: 64bit
   - TARGET_ARCH: x86
     QT: C:\Qt\5.10.1\msvc2015
     PLATFORM: x86
     COMPILER: msvc
     VSVER: 14
     LONGARCH: x86
+    BITS: 32bit
 
 clone_depth: 1
 
@@ -48,5 +50,5 @@ build_script:
   - call "appveyor/build_windows.cmd"
 
 artifacts:
-  - path: installer\windows\$(LONGARCH)\OpenKJ-$(OKJVERSION)-windows-$(LONGARCH)-installer.exe
+  - path: output\OpenKJ-$(OKJVERSION)-$(BITS)-setup.exe
     name: installer
