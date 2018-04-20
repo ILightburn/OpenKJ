@@ -50,5 +50,5 @@ build_script:
   - call "appveyor/build_windows.cmd"
 
 artifacts:
-  - path: output\OpenKJ-$(OKJVERSION)-$(BITS)-setup.exe
+  - path: OpenKJ-$(OKJVERSION)-$(BITS)-setup.exe
     name: installer
