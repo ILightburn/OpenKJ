@@ -1,3 +1,5 @@
+language: cpp
+
 matrix:
   fast_finish: true
   include:
