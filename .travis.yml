@@ -10,4 +10,4 @@ matrix:
  install:
    - "./travis/install.sh"
  script:
-   - "./travis/script.sh"
+   - "./travis/build.sh"
