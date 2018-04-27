@@ -39,3 +39,5 @@ echo "Installing gstreamer runtime package"
 sudo installer -package gstreamer-1.0-1.11.2-x86_64.pkg -target /;
 echo "Installing gstreamer devel package"
 sudo installer -package gstreamer-1.0-devel-1.11.2-x86_64.pkg -target /;
+
+ls -R
