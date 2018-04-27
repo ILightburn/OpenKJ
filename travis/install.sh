@@ -26,7 +26,7 @@ if [[ "$QMAKE_VERSION" != "${QT_LONG_VERSION}" ]]; then
   QT_INSTALLER_EXE=$HOME/${QT_INSTALLER_ROOT}.app/Contents/MacOS/${QT_INSTALLER_ROOT}
 
   echo "Installing Qt"
-  ./build/travis/job_macos/extract-qt-installer $QT_INSTALLER_EXE $QT_PATH
+  ./travis/extract-qt-installer $QT_INSTALLER_EXE $QT_PATH
   rm -rf $HOME/${QT_INSTALLER_ROOT}.app
 else
   echo "Qt ${QT_LONG_VERSION} already installed"
