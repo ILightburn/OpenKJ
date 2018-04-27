@@ -46,4 +46,3 @@ else
 fi
 
 
-ls -R
