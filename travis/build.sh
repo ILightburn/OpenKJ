@@ -7,11 +7,13 @@ if [ "${TRAVIS_PULL_REQUEST}" != "false" ]; then
   exit 0
 fi
 
-BundlePath=$PWD/OpenKJ.app
+BundlePath=$PWD/OpenKJ/OpenKJ.app
 
 $HOME/Qt/5.10.0/clang_64/bin/qmake
 
 make -j4
+
+ls -R
 
 $HOME/Qt/5.10.0/clang_64/bin/macdeployqt OpenKJ.app
 echo "Removing unneeded and non-appstore compliant plugins"
