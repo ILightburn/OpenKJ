@@ -1,6 +1,6 @@
 {
   "title": "OpenKJ",
-  "icon": "/Users/lightburnisaac/OpenKJ/OpenKJ/Icons/OpenKJ.icns",
+  "icon": "/Users/travis/OpenKJ/OpenKJ/Icons/OpenKJ.icns",
   "background": "/Users/lightburnisaac/dmgbkg.png",
   "contents": [
     { "x": 378, "y": 225, "type": "link", "path": "/Applications" },
