@@ -5,6 +5,9 @@ if [ "${TRAVIS_PULL_REQUEST}" != "false" ]; then
   exit 0
 fi
 
+echo "Installing osxrelocator"
+pip install osxrelocator
+
 #install gstreamer#install Qt
 echo "Downloading Qt"
 wget -c --no-check-certificate -nv -Oqt.tar.bz2 https://cloud.hm.hozed.net/index.php/s/3lyFyolHbBdMx8o/download
