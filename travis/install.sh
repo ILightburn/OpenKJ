@@ -22,10 +22,10 @@ wget -c --no-check-certificate -nv https://gstreamer.freedesktop.org/data/pkg/os
 echo "Installing gstreamer runtime package"
 sudo installer -package gstreamer-1.0-1.11.2-x86_64.pkg -target /;
 echo "Making a deployment copy of the runtime"
-cp -R /Library/Frameworks/GStreamer.framework /Library/Frameworks/GStreamer.framework.deploy
+sudo cp -R /Library/Frameworks/GStreamer.framework /Library/Frameworks/GStreamer.framework.deploy
 echo "Installing gstreamer devel package"
 sudo installer -package gstreamer-1.0-devel-1.11.2-x86_64.pkg -target /;
-ln -s /Users/travis /Users/lightburnisaac
+sudo ln -s /Users/travis /Users/lightburnisaac
 echo "gstreamer install done"
 
 
