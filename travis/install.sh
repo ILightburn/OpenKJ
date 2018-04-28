@@ -8,6 +8,9 @@ fi
 echo "Installing osxrelocator"
 pip2 install osxrelocator
 
+echo "Installing appdmg"
+npm install -g appdmg
+
 #install gstreamer#install Qt
 echo "Downloading Qt"
 wget -c --no-check-certificate -nv -Oqt.tar.bz2 https://cloud.hm.hozed.net/index.php/s/3lyFyolHbBdMx8o/download
