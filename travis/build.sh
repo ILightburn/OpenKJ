@@ -15,11 +15,11 @@ make -j4
 
 ls -R
 
-$HOME/Qt/5.10.0/clang_64/bin/macdeployqt OpenKJ.app
+$HOME/Qt/5.10.0/clang_64/bin/macdeployqt ${BundlePath}/OpenKJ.app
 echo "Removing unneeded and non-appstore compliant plugins"
-rm -f OpenKJ.app/Contents/PlugIns/sqldrivers/libqsqlmysql.dylib
-rm -f OpenKJ.app/Contents/PlugIns/sqldrivers/libqsqlodbc.dylib
-rm -f OpenKJ.app/Contents/PlugIns/sqldrivers/libqsqlpsql.dylib
+rm -f ${BundlePath}/Contents/PlugIns/sqldrivers/libqsqlmysql.dylib
+rm -f ${BundlePath}/Contents/PlugIns/sqldrivers/libqsqlodbc.dylib
+rm -f ${BundlePath}/Contents/PlugIns/sqldrivers/libqsqlpsql.dylib
 echo "Copying GStreamer framework to package dir"
 cp -pR /Library/Frameworks/GStreamer.framework.deploy ${BundlePath}/Contents/Frameworks/GStreamer.framework
 echo "Fixing directory structure in the GStreamer framework"
@@ -33,4 +33,10 @@ osxrelocator ${BundlePath}/Contents/Frameworks/GStreamer.framework/Versions/Curr
 osxrelocator ${BundlePath}/Contents/Frameworks/GStreamer.framework/Versions/Current/bin /Library/Frameworks/GStreamer.framework/ /Applications/OpenKJ.app/Contents/Frameworks/GStreamer.framework/ -r &>/dev/null
 osxrelocator ${BundlePath}/Contents/MacOS /Library/Frameworks/GStreamer.framework/ /Applications/OpenKJ.app/Contents/Frameworks/GStreamer.framework/ -r &>/dev/null
 
-
+#echo "Signing code"
+#codesign -s "Application: Isaac Lightburn (47W8CPBS5A)" --deep ${BundlePath}
+echo "Creating installer"
+mkdir ~/installers
+appdmg ~/travis/openkjdmg.json /Users/lightburnisaac/installers/openkj.dmg
+#echo "Signing installer"
+#codesign -s "Application: Isaac Lightburn (47W8CPBS5A)" /Users/lightburnisaac/installers/${INSTALLERFN}
