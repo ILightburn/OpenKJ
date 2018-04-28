@@ -6,7 +6,7 @@ if [ "${TRAVIS_PULL_REQUEST}" != "false" ]; then
 fi
 
 echo "Installing osxrelocator"
-pip install osxrelocator
+pip2 install osxrelocator
 
 #install gstreamer#install Qt
 echo "Downloading Qt"
