@@ -11,7 +11,7 @@ ls /
 ls /Library/Frameworks
 
 
-qmake
+$HOME/Qt/5.10.0/clang_64/bin/qmake
 
 make -j2
 
