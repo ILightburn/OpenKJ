@@ -36,7 +36,7 @@ osxrelocator ${BundlePath}/Contents/MacOS /Library/Frameworks/GStreamer.framewor
 #echo "Signing code"
 #codesign -s "Application: Isaac Lightburn (47W8CPBS5A)" --deep ${BundlePath}
 echo "Creating installer"
-mkdir ~/installers
-appdmg ~/travis/openkjdmg.json /Users/lightburnisaac/installers/openkj.dmg
+cp travis/dmgbkg.png ~/
+appdmg travis/openkjdmg.json openkj.dmg
 #echo "Signing installer"
 #codesign -s "Application: Isaac Lightburn (47W8CPBS5A)" /Users/lightburnisaac/installers/${INSTALLERFN}
