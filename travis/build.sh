@@ -15,7 +15,7 @@ make -j4
 
 ls -R
 
-$HOME/Qt/5.10.0/clang_64/bin/macdeployqt ${BundlePath}/OpenKJ.app
+$HOME/Qt/5.10.0/clang_64/bin/macdeployqt ${BundlePath}
 echo "Removing unneeded and non-appstore compliant plugins"
 rm -f ${BundlePath}/Contents/PlugIns/sqldrivers/libqsqlmysql.dylib
 rm -f ${BundlePath}/Contents/PlugIns/sqldrivers/libqsqlodbc.dylib
