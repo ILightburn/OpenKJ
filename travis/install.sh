@@ -11,7 +11,7 @@ fi
 echo "Downloading Qt"
 wget -c --no-check-certificate -nv -Oqt.tbz2 https://cloud.hm.hozed.net/index.php/s/3lyFyolHbBdMx8o
 echo "Extracting Qt"
-tar -xf qt.tbz2
+tar -xf qt.tar.bz2
 echo "Moving Qt to proper location"
 mv Qt $HOME/Qt
 
