@@ -22,15 +22,15 @@ mv Qt $HOME/Qt
 
 echo "gstreamer install"
 echo "Downloading gstreamer runtime package"
-wget -c --no-check-certificate -nv https://gstreamer.freedesktop.org/data/pkg/osx/1.11.2/gstreamer-1.0-1.11.2-x86_64.pkg
+wget -c --no-check-certificate -nv -Ogstreamer.pkg https://cloud.hm.hozed.net/index.php/s/MmEJPabg9FPnuCL/download
 echo "Downloading gstreamer devel package"
-wget -c --no-check-certificate -nv https://gstreamer.freedesktop.org/data/pkg/osx/1.11.2/gstreamer-1.0-devel-1.11.2-x86_64.pkg
+wget -c --no-check-certificate -nv -Ogstreamer-dev.pkg https://cloud.hm.hozed.net/index.php/s/r41LnQOTjf1WG17/download
 echo "Installing gstreamer runtime package"
-sudo installer -package gstreamer-1.0-1.11.2-x86_64.pkg -target /;
+sudo installer -package gstreamer.pkg -target /;
 echo "Making a deployment copy of the runtime"
 sudo cp -R /Library/Frameworks/GStreamer.framework /Library/Frameworks/GStreamer.framework.deploy
 echo "Installing gstreamer devel package"
-sudo installer -package gstreamer-1.0-devel-1.11.2-x86_64.pkg -target /;
+sudo installer -package gstreamer-dev.pkg -target /;
 sudo ln -s /Users/travis /Users/lightburnisaac
 echo "gstreamer install done"
 
