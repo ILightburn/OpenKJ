@@ -4,7 +4,7 @@
 if [ "${TRAVIS_PULL_REQUEST}" != "false" ]; then
   exit 0
 fi
-
+pwd
 echo "Installing osxrelocator"
 pip2 install osxrelocator
 
