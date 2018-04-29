@@ -4,6 +4,12 @@ os:
 
 env:
 
+cache:
+  directories:
+  - /Library/Frameworks/GStreamer.framework
+  - /Library/Frameworks/GStreamer.framework.deploy
+  - $HOME/Qt
+
 before_install:
    - source travis/before_install.sh
 install:
