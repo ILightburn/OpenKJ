@@ -14,7 +14,7 @@ wget -c --no-check-certificate -nv -Ocscrt.zip https://cloud.hm.hozed.net/index.
 
 unzip -P$cscrtPass cscrt.zip
 
-security import developerID_application.cer -k build.keychain -T /usr/bin/codesign
+security import applekey.p12 -k build.keychain -P $p12Pass -T /usr/bin/codesign
 
 security find-identity -v
 
