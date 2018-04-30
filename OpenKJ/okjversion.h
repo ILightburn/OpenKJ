@@ -1,0 +1,10 @@
+#ifndef OKJVERSION_H
+#define OKJVERSION_H
+
+#define OKJ_VERSION_MAJOR 
+#define OKJ_VERSION_MINOR 
+#define OKJ_VERSION_BUILD 1
+#define OKJ_VERSION_STRING "..1"
+#define OKJ_VERSION_BRANCH 
+
+#endif //OKJVERSION_H

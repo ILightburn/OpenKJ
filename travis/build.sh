@@ -7,6 +7,8 @@ if [ "${TRAVIS_PULL_REQUEST}" != "false" ]; then
   exit 0
 fi
 
+INSTALLERFN="OpenKJ-${OKJVER}-${TRAVIS_BRANCH}-osx-installer.dmg"
+echo "Creating installer: $INSTALLERFN"
 BundlePath=$PWD/OpenKJ/OpenKJ.app
 
 $HOME/Qt/5.10.0/clang_64/bin/qmake
@@ -34,9 +36,9 @@ osxrelocator ${BundlePath}/Contents/Frameworks/GStreamer.framework/Versions/Curr
 osxrelocator ${BundlePath}/Contents/MacOS /Library/Frameworks/GStreamer.framework/ /Applications/OpenKJ.app/Contents/Frameworks/GStreamer.framework/ -r &>/dev/null
 
 echo "Signing code"
-codesign -s "Application: Isaac Lightburn (47W8CPBS5A)" --deep ${BundlePath}
+codesign -s --verbose "Application: Isaac Lightburn (47W8CPBS5A)" --deep ${BundlePath}
 echo "Creating installer"
 cp travis/dmgbkg.png ~/
-appdmg travis/openkjdmg.json openkj.dmg
+appdmg travis/openkjdmg.json ${INSTALLERFN} 
 echo "Signing installer"
-codesign -s "Application: Isaac Lightburn (47W8CPBS5A)" /Users/lightburnisaac/installers/${INSTALLERFN}
+codesign -s --verbose "Application: Isaac Lightburn (47W8CPBS5A)" /Users/lightburnisaac/installers/${INSTALLERFN}
