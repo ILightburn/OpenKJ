@@ -10,14 +10,14 @@ security create-keychain -p $keychainPass build.keychain
 security default-keychain -s build.keychain
 security unlock-keychain -p $keychainPass build.keychain
 security set-keychain-settings -t 3600 -u build.keychain
-security set-key-partition-list -S apple-tool:,apple: -s -k $keychainPass build.keychain
+
 
 wget -c --no-check-certificate -nv -Ocscrt.zip https://cloud.hm.hozed.net/index.php/s/6RbXk0TDIABnksR/download
 
 unzip -P$cscrtPass cscrt.zip
 
-security import applekey.p12 -k build.keychain -P $p12Pass -T /usr/bin/codesign
-
+security import applekey.p12 -k build.keychain -P $p12Pass -A 
+security set-key-partition-list -S apple-tool:,apple: -s -k $keychainPass build.keychain
 security find-identity -v
 
 echo "Installing osxrelocator"
