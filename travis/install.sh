@@ -16,6 +16,8 @@ unzip -P$cscrtPass cscrt.zip
 
 security import developerID_application.cer -k build.keychain -T /usr/bin/codesign
 
+security find-identity -v
+
 echo "Installing osxrelocator"
 pip2 install osxrelocator
 
