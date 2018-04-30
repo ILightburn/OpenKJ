@@ -7,8 +7,6 @@ if [ "${TRAVIS_PULL_REQUEST}" != "false" ]; then
   exit 0
 fi
 
-INSTALLERFN="OpenKJ-${OKJVER}-${TRAVIS_BRANCH}-osx-installer.dmg"
-echo "Creating installer: $INSTALLERFN"
 BundlePath=$PWD/OpenKJ/OpenKJ.app
 
 $HOME/Qt/5.10.0/clang_64/bin/qmake
