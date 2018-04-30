@@ -20,7 +20,6 @@ unzip -P$cscrtPass cscrt.zip
 
 security import applekey.p12 -k build.keychain -P $p12Pass -A 
 security set-key-partition-list -S apple-tool:,apple: -s -k $keychainPass build.keychain
-security find-identity -v
 
 echo "Installing osxrelocator"
 pip2 install osxrelocator
