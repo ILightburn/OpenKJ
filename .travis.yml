@@ -3,7 +3,7 @@ os:
   - osx
 
 env:
-  - OKJVER=1.3.16
+  - OKJVER=1.3.17
 
 cache:
   directories:
