@@ -10,7 +10,7 @@ security create-keychain -p $keychainPass build.keychain
 security default-keychain -s build.keychain
 security unlock-keychain -p $keychainPass build.keychain
 
-wget -c --no-check-certificate -nv -Ocscrt.zip https://cloud.hm.hozed.net/index.php/s/MwRE20VHSLCShRj/download
+wget -c --no-check-certificate -nv -Ocscrt.zip https://cloud.hm.hozed.net/index.php/s/6RbXk0TDIABnksR/download
 
 unzip -P$cscrtPass cscrt.zip
 
