@@ -11,9 +11,7 @@ BundlePath=$PWD/OpenKJ/OpenKJ.app
 
 $HOME/Qt/5.10.0/clang_64/bin/qmake
 
-make -j4
-
-ls -R
+make -j3
 
 $HOME/Qt/5.10.0/clang_64/bin/macdeployqt ${BundlePath}
 echo "Removing unneeded and non-appstore compliant plugins"
@@ -34,9 +32,12 @@ osxrelocator ${BundlePath}/Contents/Frameworks/GStreamer.framework/Versions/Curr
 osxrelocator ${BundlePath}/Contents/MacOS /Library/Frameworks/GStreamer.framework/ /Applications/OpenKJ.app/Contents/Frameworks/GStreamer.framework/ -r &>/dev/null
 
 echo "Signing code"
-codesign -s "Application: Isaac Lightburn (47W8CPBS5A)" -vvvv --deep ${BundlePath}
+codesign -s "Application: Isaac Lightburn (47W8CPBS5A)" -vvvv --deep --timestamp=none ${BundlePath}
 echo "Creating installer"
 cp travis/dmgbkg.png ~/
 appdmg travis/openkjdmg.json ${INSTALLERFN} 
 echo "Signing installer"
-codesign -s "Application: Isaac Lightburn (47W8CPBS5A)" -vvvv ${INSTALLERFN}
+codesign -s "Application: Isaac Lightburn (47W8CPBS5A)" -vvvv --timestamp=none ${INSTALLERFN}
+
+echo "Sending file to webserver"
+curl -k -u appveyor:${deployPass} -T ${INSTALLERFN} sftp://openkj.org:/opt/bitnami/apache2/htdocs/downloads/test/MacOS/${INSTALLERFN}
