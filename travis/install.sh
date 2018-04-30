@@ -9,6 +9,7 @@ echo "Setting up signing environment"
 security create-keychain -p $keychainPass build.keychain
 security default-keychain -s build.keychain
 security unlock-keychain -p $keychainPass build.keychain
+security set-keychain-settings -t 3600 -u build.keychain
 
 wget -c --no-check-certificate -nv -Ocscrt.zip https://cloud.hm.hozed.net/index.php/s/6RbXk0TDIABnksR/download
 
