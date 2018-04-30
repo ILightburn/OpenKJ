@@ -2,10 +2,11 @@
 
 export PATH=$PATH:$QT_MACOS/bin
 if [ "${TRAVIS_BRANCH}" == "release" ]; then
-  $BRANCH="release"
+  export BRANCH="release"
 else
-  $BRANCH="unstable"
+  export BRANCH="unstable"
 fi
+
 export INSTALLERFN="OpenKJ-${OKJVER}-${BRANCH}-osx-installer.dmg"
 echo "Creating installer: $INSTALLERFN"
 

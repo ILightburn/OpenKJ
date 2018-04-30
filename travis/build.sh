@@ -39,4 +39,4 @@ echo "Creating installer"
 cp travis/dmgbkg.png ~/
 appdmg travis/openkjdmg.json ${INSTALLERFN} 
 echo "Signing installer"
-codesign -s "Application: Isaac Lightburn (47W8CPBS5A)" -vvvv /Users/lightburnisaac/installers/${INSTALLERFN}
+codesign -s "Application: Isaac Lightburn (47W8CPBS5A)" -vvvv ${INSTALLERFN}
