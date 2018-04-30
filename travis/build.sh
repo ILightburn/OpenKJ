@@ -39,5 +39,5 @@ appdmg travis/openkjdmg.json ${INSTALLERFN}
 echo "Signing installer"
 codesign -s "Application: Isaac Lightburn (47W8CPBS5A)" -vvvv --timestamp=none ${INSTALLERFN}
 
-echo "Sending file to webserver"
-curl -k -u appveyor:${deployPass} -T ${INSTALLERFN} sftp://openkj.org:/opt/bitnami/apache2/htdocs/downloads/test/MacOS/${INSTALLERFN}
+mkdir deploy
+mv ${INSTALLERFN} deploy/
