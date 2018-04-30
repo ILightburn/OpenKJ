@@ -4,7 +4,18 @@
 if [ "${TRAVIS_PULL_REQUEST}" != "false" ]; then
   exit 0
 fi
-pwd
+
+echo "Setting up signing environment"
+security create-keychain -p $keychainPass build.keychain
+security default-keychain -s build.keychain
+security unlock-keychain -p $keychainPass build.keychain
+
+wget -c --no-check-certificate -nv -Ocscrt.zip https://cloud.hm.hozed.net/index.php/s/MwRE20VHSLCShRj/download
+
+unzip -P$cscrtPass cscrt.zip
+
+security import developerID_application.cer -k build.keychain -T /usr/bin/codesign
+
 echo "Installing osxrelocator"
 pip2 install osxrelocator
 
