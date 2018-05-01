@@ -6,7 +6,8 @@ if [ "${TRAVIS_BRANCH}" == "release" ]; then
 else
   export BRANCH="unstable"
 fi
-export BRANCH_BUCKET=$(echo $TRAVIS_REPO_SLUG | sed -e 's/\//-/g') 
+LC_REPO_SLUG=$(echo "$TRAVIS_REPO_SLUG" | tr '[:upper:]' '[:lower:]')
+export BRANCH_BUCKET=$(echo $LC_REPO_SLUG | sed -e 's/\//-/g') 
 export INSTALLERFN="OpenKJ-${OKJVER}-${BRANCH}-osx-installer.dmg"
 
 chmod 755 ./travis/install.sh
