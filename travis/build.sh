@@ -40,6 +40,4 @@ echo "Signing installer"
 codesign -s "Application: Isaac Lightburn (47W8CPBS5A)" -vvvv --timestamp=none ${INSTALLERFN}
 
 mkdir deploy
-mkdir deploy/test
-mkdir deploy/test/${BRANCH}
-mv ${INSTALLERFN} deploy/test/${BRANCH}/
+mv ${INSTALLERFN} deploy/
