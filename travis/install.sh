@@ -7,6 +7,7 @@ fi
 
 
 echo "BRANCH_BUCKET=${BRANCH_BUCKET}"
+
 echo "Setting up signing environment"
 security create-keychain -p $keychainPass build.keychain
 security default-keychain -s build.keychain
